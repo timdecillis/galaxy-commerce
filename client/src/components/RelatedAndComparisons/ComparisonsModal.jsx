@@ -1,7 +1,8 @@
 import React from 'react';
 import { useState, useEffect, useRef } from 'react';
-import { fetchProducts } from '../../lib/requestHelpers.js';
 import _ from 'lodash';
+
+import { fetchProducts } from '../../lib/requestHelpers.js';
 
 const ComparisonsModal = ({modalToggle, closeModal, isOpen, currentProduct, compareProduct}) => {
 

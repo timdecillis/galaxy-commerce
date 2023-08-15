@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import { render, screen, product, productName } from '@testing-library/react';
-import { revsMeta } from './data.js';
 import '@testing-library/jest-dom';
 
+import { revsMeta } from './data.js';
 import AddReviewModal from '../../components/RatingsAndReviews/AddReviewModal.jsx';
 
 describe('AddReviewModal', () => {
@@ -15,9 +15,6 @@ describe('AddReviewModal', () => {
       }} />;
     };
     render(<Wrapper />);
-  });
-  it('should create an array', () => {
-    // createErrorArray();
   });
 });
 

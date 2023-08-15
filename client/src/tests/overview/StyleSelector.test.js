@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import {render, screen} from '@testing-library/react';
 import '@testing-library/jest-dom';
+
 import { productId, currentProduct, style, reviewsData, productStyles } from './overviewData.js';
 import { createSubarray } from '../../lib/overviewHelpers.js';
-
 import StyleSelector from '../../components/overview/StyleSelector.jsx';
 
 describe('Style Selector', function() {

@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { FaChevronDown } from 'react-icons/fa';
+import DropDownSort from './DropDownSort.jsx';
+
 import ReviewsList from './ReviewsList.jsx';
 import RatingBreakdown from './RatingBreakdown.jsx';
 import Characteristics from './Characteristics.jsx';
 import AddReviewModal from './AddReviewModal.jsx';
-import { getReviews, getReviewsMeta, fetchProducts } from '../../lib/requestHelpers.js';
-import { FaChevronDown } from 'react-icons/fa';
-import DropDownSort from './DropDownSort.jsx';
 import star from '../../assets/stars/star.png';
+import { getReviews, getReviewsMeta, fetchProducts } from '../../lib/requestHelpers.js';
 
 const RatingsAndReviews = ({ product }) => {
 

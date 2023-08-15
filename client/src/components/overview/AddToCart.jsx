@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { addToCart } from '../../lib/requestHelpers.js';
-import { createArrayFromInt } from '../../lib/overviewHelpers.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
+
+import { addToCart } from '../../lib/requestHelpers.js';
+import { createArrayFromInt } from '../../lib/overviewHelpers.js';
 
 const AddToCart = ({style}) => {
 

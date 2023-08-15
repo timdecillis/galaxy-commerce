@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
+
 import { fetchProducts } from '../../lib/requestHelpers.js';
 import Related from './Related.jsx';
 import Outfit from './Outfit.jsx';

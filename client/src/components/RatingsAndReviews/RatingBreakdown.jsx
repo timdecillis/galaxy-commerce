@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import StarRating from './StarRating.jsx';
+
 import { getAverageRating, calculateTotalReviews, calculateRatingsPercentage, getRecommendPercentage, convertRatingToStars } from '../../lib/ratingsAndReviewsHelpers.js';
 import { getReviewsMeta } from '../../lib/requestHelpers.js';
-
+import StarRating from './StarRating.jsx';
 const RatingBreakdown = ({ ratings, metaData, setReviews, sortReviews, activeStars, removeAllFilters }) => {
 
   if (metaData === null) {

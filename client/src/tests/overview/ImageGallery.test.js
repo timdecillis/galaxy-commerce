@@ -1,13 +1,9 @@
 import React, {useState} from 'react';
 import {render, screen, fireEvent} from '@testing-library/react';
 import '@testing-library/jest-dom';
+
 import { productId, currentProduct, style, reviewsData, productStyles } from './overviewData.js';
-
 import ImageGallery from '../../components/overview/ImageGallery.jsx';
-
-// Tests to Add
-// 1) Renders image
-// 2) No error w/o image
 
 describe('ImageGallery', function() {
 

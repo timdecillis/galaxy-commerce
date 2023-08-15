@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { parseISO } from 'date-fns';
 import { FaCheck } from 'react-icons/fa';
+
 import { convertRatingToStars } from '../../lib/ratingsAndReviewsHelpers.js';
 
 const updateHelpful = (choice) => {

@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+
 import ImageGallery from './ImageGallery.jsx';
 import ProductInformation from './ProductInformation.jsx';
 import StyleSelector from './StyleSelector.jsx';
@@ -6,7 +8,6 @@ import AddToCart from './AddToCart.jsx';
 import {fetchProducts, getReviewsMeta} from '../../lib/requestHelpers.js';
 import {findDefaultStyle} from '../../lib/overviewHelpers.js';
 import {getAverageRating, calculateTotalReviews} from '../../lib/ratingsAndReviewsHelpers.js';
-import axios from 'axios';
 
 
 const Overview = ({ productId }) => {

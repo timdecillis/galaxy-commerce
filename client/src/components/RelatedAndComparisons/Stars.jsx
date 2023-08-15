@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+
 import { getAverageRating, convertRatingToStars } from '../../lib/ratingsAndReviewsHelpers.js';
 import { TOKEN } from '../../../../config.js';
 

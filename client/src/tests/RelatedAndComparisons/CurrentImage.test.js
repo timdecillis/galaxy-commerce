@@ -1,8 +1,9 @@
 import * as React from 'react';
 import { render, screen, act} from '@testing-library/react';
 import '@testing-library/jest-dom';
-import CurrentImage from '../../components/RelatedAndComparisons/CurrentImage.jsx';
+
 import { fetchProducts } from '../../lib/requestHelpers.js';
+import CurrentImage from '../../components/RelatedAndComparisons/CurrentImage.jsx';
 
 jest.mock('../../lib/requestHelpers.js', () => ({
   fetchProducts: jest.fn()
@@ -82,5 +83,3 @@ describe('CurrentImageComponent', () => {
     });
   });
 });
-
-

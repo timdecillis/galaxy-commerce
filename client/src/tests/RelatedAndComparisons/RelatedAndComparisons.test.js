@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
+
 import RelatedAndComparisons from '../../components/RelatedAndComparisons/RelatedAndComparisons.jsx';
 
 describe('RelatedAndComparisonsComponent', () => {
@@ -12,8 +13,3 @@ describe('RelatedAndComparisonsComponent', () => {
     expect(element).toBeInTheDocument();
   });
 });
-
-
-
-
-

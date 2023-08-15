@@ -2,10 +2,6 @@
 import { TOKEN } from '../../../config.js';
 import axios from 'axios';
 
-//API Call that takes in optional id (INT) and category ('styles' or 'related')
-//returns full product list array if no params
-//returns single product object if only id
-//returns styles or related products array if id and category
 export const fetchProducts = function (id, category) {
   let options = {
     headers: {
@@ -100,4 +96,3 @@ export const addToCart = (sku, count) => {
       throw err;
     });
 };
-

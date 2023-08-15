@@ -3,9 +3,6 @@ import RatingsAndReviews from './RatingsAndReviews/RatingsAndReviews.jsx';
 import Overview from './overview/Overview.jsx';
 import RelatedAndComparisons from './RelatedAndComparisons/RelatedAndComparisons.jsx';
 
-
-
-
 const App = () => {
 
   const [product, setProduct] = useState(40348);

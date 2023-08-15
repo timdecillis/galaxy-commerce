@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import { FaCaretDown } from 'react-icons/fa';
 import { characteristicsKey } from '../../lib/ratingsAndReviewsHelpers.js';
 

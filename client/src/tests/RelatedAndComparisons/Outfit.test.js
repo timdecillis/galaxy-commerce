@@ -1,9 +1,10 @@
 import * as React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import Outfit from '../../components/RelatedAndComparisons/Outfit.jsx';
-import { fetchProducts } from '../../lib/requestHelpers.js';
 import Cookies from 'js-cookie';
+
+import { fetchProducts } from '../../lib/requestHelpers.js';
+import Outfit from '../../components/RelatedAndComparisons/Outfit.jsx';
 
 jest.mock('js-cookie', () => ({
   get: jest.fn(),

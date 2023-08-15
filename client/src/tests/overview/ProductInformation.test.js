@@ -1,8 +1,8 @@
 import React from 'react';
 import {render, screen} from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { productId, currentProduct, style, reviewsData, productStyles } from './overviewData.js';
 
+import { productId, currentProduct, style, reviewsData, productStyles } from './overviewData.js';
 import ProductInformation from '../../components/overview/ProductInformation.jsx';
 
 describe('ProductInformation', function() {

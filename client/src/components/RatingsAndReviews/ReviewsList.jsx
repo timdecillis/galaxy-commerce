@@ -17,4 +17,3 @@ const ReviewsList = ({visibleReviews}) => {
 };
 
 export default ReviewsList;
-

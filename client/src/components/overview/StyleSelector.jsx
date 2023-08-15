@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faCircle, faChevronRight} from '@fortawesome/free-solid-svg-icons';
+
 import { createSubarray } from '../../lib/overviewHelpers.js';
 
 const StyleSelector = ({ productStyles, style, setStyle }) => {

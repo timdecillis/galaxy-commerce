@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faTwitter, faPinterest } from '@fortawesome/free-brands-svg-icons';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
+
 import { getAverageRating } from '../../lib/ratingsAndReviewsHelpers.js';
 import Stars from './Stars.jsx';
 

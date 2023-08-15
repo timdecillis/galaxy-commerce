@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
+
 import Related from '../../components/RelatedAndComparisons/Related.jsx';
 
 describe('RelatedComponent', () => {

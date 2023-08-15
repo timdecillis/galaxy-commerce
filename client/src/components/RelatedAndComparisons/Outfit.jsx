@@ -1,9 +1,10 @@
 import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import Cookies from 'js-cookie';
+
 import Card from './Card.jsx';
 import { fetchProducts } from '../../lib/requestHelpers.js';
-import Cookies from 'js-cookie';
 
 const Outfit = ( {outfitClick, outfitItems, handleLeftClick, handleRightClick, scrollPosition, currentProduct, setCurrentProduct, outfits, setOutfits} ) => {
   const [outfitIDs, setOutfitIDs] = useState([]);

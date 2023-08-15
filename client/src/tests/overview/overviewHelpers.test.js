@@ -1,5 +1,6 @@
 import {findDefaultStyle, isDefaultStyle, createSubarray, createArrayFromInt } from '../../lib/overviewHelpers.js';
 import '@testing-library/jest-dom';
+
 import { productId, currentProduct, style, reviewsData, productStyles, noDefaultStyles } from './overviewData.js';
 
 describe('findDefaultStyle', function() {

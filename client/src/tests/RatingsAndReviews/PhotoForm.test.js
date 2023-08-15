@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { render, screen, product, productName } from '@testing-library/react';
-import { revsMeta } from './data.js';
 import '@testing-library/jest-dom';
 
+import { revsMeta } from './data.js';
 import PhotoForm from '../../components/RatingsAndReviews/PhotoForm.jsx';
 
 describe('PhotoForm', () => {

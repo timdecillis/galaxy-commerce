@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
-import ImageZoom from './ImageZoom.jsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronUp, faChevronDown, faCircleChevronRight, faCircleChevronLeft, faExpand, faCircle, faSquare } from '@fortawesome/free-solid-svg-icons';
+
+import ImageZoom from './ImageZoom.jsx';
 
 const ImageGallery = ({ product, style, activeImageIndex, setActiveImageIndex, expandedView, setExpandedView }) => {
 

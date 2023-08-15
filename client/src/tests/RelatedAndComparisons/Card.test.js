@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
+
 import Card from '../../components/RelatedAndComparisons/Card.jsx';
 import ProductInfo from '../../components/RelatedAndComparisons/ProductInfo.jsx';
 import CurrentImage from '../../components/RelatedAndComparisons/CurrentImage.jsx';

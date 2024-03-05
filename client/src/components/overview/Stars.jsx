@@ -1,17 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
-import starEmpty from '../../assets/stars/star-empty.png';
-import starFull from '../../assets/stars/star.png';
-import starQuarter from '../../assets/stars/star-one-quarter.png';
-import starHalf from '../../assets/stars/star-half.png';
-import starThreeQuarters from '../../assets/stars/star-three-quarter.png';
+import starEmpty from "../../assets/stars/star-empty.png";
+import starFull from "../../assets/stars/star.png";
+import starQuarter from "../../assets/stars/star-one-quarter.png";
+import starHalf from "../../assets/stars/star-half.png";
+import starThreeQuarters from "../../assets/stars/star-three-quarter.png";
 
-const Stars = ({starRating}) => {
-
+const Stars = ({ starRating }) => {
   const [starArray, setStarArray] = useState([]);
 
   useEffect(() => {
-
     if (!!starRating) {
       let tempStarArray = [];
       let fullStars = Math.floor(starRating);
@@ -35,8 +33,6 @@ const Stars = ({starRating}) => {
 
       setStarArray(tempStarArray);
     }
-
-
   }, [starRating]);
 
   if (starArray.length) {
@@ -45,16 +41,17 @@ const Stars = ({starRating}) => {
         {starArray.map((starSrc, i) => {
           return (
             <div key={i} className="star-container">
-              <img src={starSrc} alt={`Image of star representing product rating of ${starRating}`}/>
+              <img
+                src={starSrc}
+                alt={`Image of star representing product rating of ${starRating}`}
+              />
             </div>
           );
         })}
       </>
     );
   } else {
-    return (
-      <></>
-    );
+    return <></>;
   }
 };
 

@@ -38,30 +38,30 @@ const RelatedAndComparisons = ( { currentProduct, setCurrentProduct } ) => {
     });
   };
 
-  useEffect(() => {
-    const rightArrows = document.querySelectorAll('.right-arrow-button');
-    const leftArrows = document.querySelectorAll('.left-arrow-button');
-    disArrows(rightArrows);
-    visArrows(leftArrows);
+  // useEffect(() => {
+  //   const rightArrows = document.querySelectorAll('.right-arrow-button');
+  //   const leftArrows = document.querySelectorAll('.left-arrow-button');
+  //   disArrows(rightArrows);
+  //   visArrows(leftArrows);
 
-    let relArr = [];
-    setRelatedPosition(0);
-    setRelatedIndex(0);
-    setOutfitIndex(0);
-    setOutfitPosition(0);
-    fetchProducts(currentProduct, 'related')
-      .then(res => {
-        const promise = res.map(product => fetchProducts(product));
-        return Promise.all(promise);
-      })
-      .then(products => {
-        const relArr = [...new Set(products.map(JSON.stringify))].map(JSON.parse);
-        setProdArr(relArr);
-      })
-      .catch(err => {
-        throw err;
-      });
-  }, [currentProduct]);
+  //   let relArr = [];
+  //   setRelatedPosition(0);
+  //   setRelatedIndex(0);
+  //   setOutfitIndex(0);
+  //   setOutfitPosition(0);
+  //   fetchProducts(currentProduct, 'related')
+  //     .then(res => {
+  //       const promise = res.map(product => fetchProducts(product));
+  //       return Promise.all(promise);
+  //     })
+  //     .then(products => {
+  //       const relArr = [...new Set(products.map(JSON.stringify))].map(JSON.parse);
+  //       setProdArr(relArr);
+  //     })
+  //     .catch(err => {
+  //       throw err;
+  //     });
+  // }, [currentProduct]);
 
   const scrollToCard = (cardIndex, buttonClass) => {
     const cardWidth = 239.9;

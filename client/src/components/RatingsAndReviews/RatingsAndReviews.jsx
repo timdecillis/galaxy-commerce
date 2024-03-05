@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { FaChevronDown } from 'react-icons/fa';
 import DropDownSort from './DropDownSort.jsx';
@@ -24,37 +25,56 @@ const RatingsAndReviews = ({ product }) => {
 
   const sortOptions = ['relevance', 'helpfulness', 'newest'];
 
-  useEffect(() => {
-    getReviews(product, currentSort)
-      .then((reviews) => {
-        setReviews(reviews);
-        return reviews;
-      })
-      .then((reviews) => {
-        let array = reviews.slice(0, 2);
-        setVisibleReviews(array);
-        return array;
-      })
-      .then(() => {
-        return getReviewsMeta(product);
-      })
-      .then(({ data }) => {
-        setMetaData(data);
-        return data;
-      })
-      .then((data) => {
-        setRatings(data.ratings);
-      })
-      .then(() => {
-        return fetchProducts(product);
-      })
-      .then(({ name }) => {
-        setProductName(name);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, [product]);
+
+  // var url = `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/?page=1&count=200&sort=relevance&product_id=40348`;
+
+  // return axios({
+  //   method: 'get',
+  //   url: url,
+  //   headers: {
+  //     'Authorization': TOKEN
+  //   }
+  // })
+  //   .then((res) => {
+  //     let reviews = res.data.results;
+  //     console.log('reponse:', res.data.results)
+  //     return reviews;
+  //   })
+  //   .catch((err => {
+  //     throw (err);
+  //   }));
+
+  // useEffect(() => {
+  //   getReviews(product, currentSort)
+  //     .then((reviews) => {
+  //       setReviews(reviews);
+  //       return reviews;
+  //     })
+  //     .then((reviews) => {
+  //       let array = reviews.slice(0, 2);
+  //       setVisibleReviews(array);
+  //       return array;
+  //     })
+  //     .then(() => {
+  //       return getReviewsMeta(product);
+  //     })
+  //     .then(({ data }) => {
+  //       setMetaData(data);
+  //       return data;
+  //     })
+  //     .then((data) => {
+  //       setRatings(data.ratings);
+  //     })
+  //     .then(() => {
+  //       return fetchProducts(product);
+  //     })
+  //     .then(({ name }) => {
+  //       setProductName(name);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // }, [product]);
 
   const addReviews = () => {
     var index = visibleReviews.length;

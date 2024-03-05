@@ -19,34 +19,34 @@ const Overview = ({ productId }) => {
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [expandedView, setExpandedView] = useState(false);
 
-  useEffect(() => {
-    fetchProducts(productId)
-      .then((res) => setCurrentProduct(res))
-      .then(() => {
-        fetchProducts(productId, 'styles')
-          .then((res) => {
-            setProductStyles(res.results);
-            return res.results;
-          })
-          .then((res) => {
-            setStyle(findDefaultStyle(res));
-          })
-          .catch((err) => console.error(err));
-      })
-      .catch((err) => console.error(err));
+  // useEffect(() => {
+  //   fetchProducts(productId)
+  //     .then((res) => setCurrentProduct(res))
+  //     .then(() => {
+  //       fetchProducts(productId, 'styles')
+  //         .then((res) => {
+  //           setProductStyles(res.results);
+  //           return res.results;
+  //         })
+  //         .then((res) => {
+  //           setStyle(findDefaultStyle(res));
+  //         })
+  //         .catch((err) => console.error(err));
+  //     })
+  //     .catch((err) => console.error(err));
 
-    getReviewsMeta(productId)
-      .then((res) => {
-        var ratings = {
-          average: getAverageRating(res.data.ratings, 2),
-          count: calculateTotalReviews(res.data.ratings)
-        };
-        setReviewsData(ratings);
-      });
+  //   getReviewsMeta(productId)
+  //     .then((res) => {
+  //       var ratings = {
+  //         average: getAverageRating(res.data.ratings, 2),
+  //         count: calculateTotalReviews(res.data.ratings)
+  //       };
+  //       setReviewsData(ratings);
+  //     });
 
-    setActiveImageIndex(0);
+  //   setActiveImageIndex(0);
 
-  }, [productId]);
+  // }, [productId]);
 
   useEffect(() => {
 

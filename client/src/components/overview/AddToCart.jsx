@@ -1,15 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import React, { useState, useEffect } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
-import { addToCart } from '../../lib/requestHelpers.js';
-import { createArrayFromInt } from '../../lib/overviewHelpers.js';
+import { addToCart } from "../../lib/requestHelpers.js";
+import { createArrayFromInt } from "../../lib/overviewHelpers.js";
 
-const AddToCart = ({style}) => {
-
-  const [selectedSku, setSelectedSku] = useState('');
+const AddToCart = ({ style }) => {
+  const [selectedSku, setSelectedSku] = useState("");
   const [selectedQty, setSelectedQty] = useState(0);
-  const [flashMessage, setFlashMessage] = useState('');
+  const [flashMessage, setFlashMessage] = useState("");
   const [skus, setSkus] = useState([]);
   const [qty, setQty] = useState([]);
 
@@ -23,8 +22,8 @@ const AddToCart = ({style}) => {
     var sku = e.target.value;
     setSelectedQty(1);
     setSelectedSku(sku);
-    if (sku !== '') {
-      setFlashMessage('');
+    if (sku !== "") {
+      setFlashMessage("");
       setQty(createArrayFromInt(skus[sku].quantity));
     }
   };
@@ -32,19 +31,18 @@ const AddToCart = ({style}) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (selectedSku === '') {
-      setFlashMessage('Please select a size');
+    if (selectedSku === "") {
+      setFlashMessage("Please select a size");
     } else {
       addToCart(selectedSku, selectedQty)
         .then((res) => {
-          setSelectedSku('');
-          setFlashMessage('Item added to cart');
+          setSelectedSku("");
+          setFlashMessage("Item added to cart");
         })
         .catch((err) => {
           console.error(err);
         });
     }
-
   };
 
   return (
@@ -55,40 +53,59 @@ const AddToCart = ({style}) => {
       <div id="cart-form-container">
         <form onSubmit={(e) => handleSubmit(e)}>
           <div id="select-container">
-            <select id="size-select" value={selectedSku} onChange={(e) => handleSizeInput(e)}>
+            <select
+              id="size-select"
+              value={selectedSku}
+              onChange={(e) => handleSizeInput(e)}
+            >
               <option value="">Select a size</option>
-              { !style ? (
+              {!style ? (
                 <></>
               ) : (
                 Object.keys(skus).map((sku) => {
                   var size = skus[sku].size;
                   return (
-                    <option key={sku} value={sku}>{size}</option>
+                    <option key={sku} value={sku}>
+                      {size}
+                    </option>
                   );
                 })
               )}
             </select>
-            { selectedSku === '' ? (
-              <select id="qty-select" onClick={() => setFlashMessage('Please select a size')}>
+            {selectedSku === "" ? (
+              <select
+                id="qty-select"
+                onClick={() => setFlashMessage("Please select a size")}
+              >
                 <option value="">&ndash;</option>
               </select>
             ) : (
-              <select id="qty-select" value={selectedQty} onChange={(e) => setSelectedQty(e.target.value)}>
-                { qty.map((num) => {
+              <select
+                id="qty-select"
+                value={selectedQty}
+                onChange={(e) => setSelectedQty(e.target.value)}
+              >
+                {qty.map((num) => {
                   if (num === 1) {
                     return (
-                      <option key={`qty-${num}`} value={num}>{num}</option>
+                      <option key={`qty-${num}`} value={num}>
+                        {num}
+                      </option>
                     );
                   } else {
                     return (
-                      <option key={`qty-${num}`} value={num}>{num}</option>
+                      <option key={`qty-${num}`} value={num}>
+                        {num}
+                      </option>
                     );
                   }
                 })}
               </select>
             )}
           </div>
-          <button type="submit" id="add-to-cart-button">Add To Cart <FontAwesomeIcon icon={faPlus} /></button>
+          <button type="submit" id="add-to-cart-button">
+            Add To Cart <FontAwesomeIcon icon={faPlus} />
+          </button>
         </form>
       </div>
     </section>

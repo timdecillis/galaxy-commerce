@@ -1,13 +1,17 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from "react";
 
-const ImageZoom = ({ photoURL, setPhotoURL, toggleZoomedView, bounds, setZoomedMode }) => {
-
+const ImageZoom = ({
+  photoURL,
+  setPhotoURL,
+  toggleZoomedView,
+  bounds,
+  setZoomedMode,
+}) => {
   const zoomImg = useRef({});
   const imgProps = useRef({});
   const [top, setTop] = useState(0);
   const [left, setLeft] = useState(0);
   const zoomScale = 2.5;
-
 
   useEffect(() => {
     imgProps.current = getDefaults();
@@ -18,11 +22,14 @@ const ImageZoom = ({ photoURL, setPhotoURL, toggleZoomedView, bounds, setZoomedM
   useEffect(() => {
     const scaledDimensions = getScaledDimensions(zoomImg.current, zoomScale);
 
-    zoomImg.current.setAttribute('width', scaledDimensions.width);
-    zoomImg.current.setAttribute('height', scaledDimensions.height);
+    zoomImg.current.setAttribute("width", scaledDimensions.width);
+    zoomImg.current.setAttribute("height", scaledDimensions.height);
 
     imgProps.current.scaledDimensions = scaledDimensions;
-    imgProps.current.ratios = getRatios(imgProps.current.bounds, scaledDimensions);
+    imgProps.current.ratios = getRatios(
+      imgProps.current.bounds,
+      scaledDimensions
+    );
 
     imgProps.current.offsets = getOffsets(
       window.pageXOffset,
@@ -30,12 +37,9 @@ const ImageZoom = ({ photoURL, setPhotoURL, toggleZoomedView, bounds, setZoomedM
       -imgProps.current.bounds.left,
       -imgProps.current.bounds.top
     );
-
   }, [zoomImg.current, bounds]);
 
-
   const handleMouseMove = (e) => {
-
     let tempLeft = e.pageX + imgProps.current.offsets.x;
     let tempTop = e.pageY + imgProps.current.offsets.y;
 
@@ -59,39 +63,43 @@ const ImageZoom = ({ photoURL, setPhotoURL, toggleZoomedView, bounds, setZoomedM
       bounds: {},
       offsets: {},
       ratios: {},
-      scaledDimensions: {}
+      scaledDimensions: {},
     };
   };
 
   const getOffsets = (pageX, pageY, left, top) => {
     return {
       x: pageX + left,
-      y: pageY + top
+      y: pageY + top,
     };
   };
 
   const getRatios = (bounds, dimensions) => {
     return {
       x: (dimensions.width - bounds.width) / bounds.width,
-      y: (dimensions.height - bounds.height) / bounds.height
+      y: (dimensions.height - bounds.height) / bounds.height,
     };
   };
 
   const getScaledDimensions = (zoomImg, zoomScale) => {
     return {
       width: zoomImg.naturalWidth * zoomScale,
-      height: zoomImg.naturalHeight * zoomScale
+      height: zoomImg.naturalHeight * zoomScale,
     };
   };
 
   return (
-    <figure onClick={toggleZoomedView} className="image-zoom-container" style={{ width: '100%'}} >
+    <figure
+      onClick={toggleZoomedView}
+      className="image-zoom-container"
+      style={{ width: "100%" }}
+    >
       <img
         className="image-zoom"
         src={photoURL}
         style={{
           top: top,
-          left: left
+          left: left,
         }}
         ref={zoomImg}
         onLoad={(e) => handleMouseMove(e)}

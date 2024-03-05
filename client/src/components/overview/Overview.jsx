@@ -1,17 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
-import ImageGallery from './ImageGallery.jsx';
-import ProductInformation from './ProductInformation.jsx';
-import StyleSelector from './StyleSelector.jsx';
-import AddToCart from './AddToCart.jsx';
-import {fetchProducts, getReviewsMeta} from '../../lib/requestHelpers.js';
-import {findDefaultStyle} from '../../lib/overviewHelpers.js';
-import {getAverageRating, calculateTotalReviews} from '../../lib/ratingsAndReviewsHelpers.js';
-
+import ImageGallery from "./ImageGallery.jsx";
+import ProductInformation from "./ProductInformation.jsx";
+import StyleSelector from "./StyleSelector.jsx";
+import AddToCart from "./AddToCart.jsx";
+import { fetchProducts, getReviewsMeta } from "../../lib/requestHelpers.js";
+import { findDefaultStyle } from "../../lib/overviewHelpers.js";
+import {
+  getAverageRating,
+  calculateTotalReviews,
+} from "../../lib/ratingsAndReviewsHelpers.js";
 
 const Overview = ({ productId }) => {
-
   const [currentProduct, setCurrentProduct] = useState({});
   const [style, setStyle] = useState({});
   const [productStyles, setProductStyles] = useState([]);
@@ -49,25 +50,37 @@ const Overview = ({ productId }) => {
   // }, [productId]);
 
   useEffect(() => {
-
     if (activeImageIndex !== 0) {
       if (style.photos.length >= activeImageIndex) {
         setActiveImageIndex(0);
       }
-
     }
-
   }, [style]);
 
   return (
     <section id="overview">
-      <ImageGallery product={productId} style={style} activeImageIndex={activeImageIndex} setActiveImageIndex={setActiveImageIndex} expandedView={expandedView} setExpandedView={setExpandedView} />
-      { !expandedView ? (
+      <ImageGallery
+        product={productId}
+        style={style}
+        activeImageIndex={activeImageIndex}
+        setActiveImageIndex={setActiveImageIndex}
+        expandedView={expandedView}
+        setExpandedView={setExpandedView}
+      />
+      {!expandedView ? (
         <aside>
           <div>
-            <ProductInformation product={currentProduct} style={style} reviewsData={reviewsData} />
+            <ProductInformation
+              product={currentProduct}
+              style={style}
+              reviewsData={reviewsData}
+            />
             <hr />
-            <StyleSelector productStyles={productStyles} style={style} setStyle={setStyle} />
+            <StyleSelector
+              productStyles={productStyles}
+              style={style}
+              setStyle={setStyle}
+            />
           </div>
           <AddToCart style={style} />
         </aside>
